@@ -43,6 +43,8 @@ pip install librosa numpy
 
 ## Execution
 
+Il faut spécifier le fichier à analyser dans `main.py` dans la variable `fichier_audio`
+
 ```bash
 python3 main.py
 ```
