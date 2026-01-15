@@ -8,7 +8,7 @@ Le programme permet d'obtenir un fichier JSON qui contient :
 
 - "key" : La tonalité
 - "tempo" : le battement par minute
-- "beat_times" : une liste des marquages temporels qui marquent un battement dans la musique
+- "beat_times" : une liste des marquages temporels qui marquent un battement dans la musique et leurs puissance
 
 
 ## Pré-requis
