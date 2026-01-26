@@ -11,7 +11,7 @@ y, sr = librosa.load(fichier_audio)
 # Tempo (pulsation) et rythme
 tempo, beat_frames = librosa.beat.beat_track(y=y, sr=sr)
 tempo = tempo.item() if hasattr(tempo, 'item') else float(tempo)
-beat_times = librosa.frames_to_time(beat_frames, sr=sr)
+beats = librosa.frames_to_time(beat_frames, sr=sr)
 
 # Calculer la puissance (intensité) de chaque beat
 onset_env = librosa.onset.onset_strength(y=y, sr=sr)
@@ -29,7 +29,7 @@ key = notes[key_index]
 os.makedirs('resultat', exist_ok=True)
 
 # Créer une liste combinant temps et puissance
-beats_avec_puissance = [{"temps": float(t), "puissance": float(p)} for t, p in zip(beat_times, beat_strengths)]
+beats_avec_puissance = [{"timing": float(t), "puissance": float(p)} for t, p in zip(beats, beat_strengths)]
 
 save_to_json('resultat/analyse_rythme.json', key, tempo, beats_avec_puissance, librosa.get_duration(y=y, sr=sr))
 print(f"\nDonnées sauvegardées dans: resultat/analyse_rythme.json")
